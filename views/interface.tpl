@@ -27,27 +27,11 @@
 		<table class="vertical">
 			<tr class="first">
 				<th>Name</th>
-				<td><?php echo $name;?></td>
-			</tr>
-			<tr class="middle">
-				<th>Web</th>
-				<td><?php echo $data['package_web'];?></td>
-			</tr>
-			<tr class="middle">
-				<th>Description</th>
-				<td><?php echo $data['package_description'];?></td>
-			</tr>
-			<tr class="middle">
-				<th>Copyright</th>
-				<td><?php echo $data['package_copyright'];?></td>
-			</tr>
-			<tr class="middle">
-				<th>License</th>
-				<td><?php echo $data['package_license'];?></td>
+				<td><strong><?php echo $name ?></strong> - <?php echo $data['package_description']; ?></td>
 			</tr>
 			<tr class="last">
-				<th>Authors</th>
-				<td><?php echo $data['package_authors'];?></td>
+				<th>Copyright</th>
+				<td><?php echo $data['package_copyright'];?> - <?php echo $data['package_license'];?></td>
 			</tr>
 		</table>
 		

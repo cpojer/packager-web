@@ -55,10 +55,14 @@ table {
 	margin-bottom: 20px;
 }
 
+table.vertical {
+	margin-bottom: 10px;
+}
+
 th {
 	text-align: left;
 	background: #fff;
-	padding: 8px 6px;
+	padding: 6px;
 	color: #444;
 }
 
@@ -85,6 +89,10 @@ table.horizontal td {
 
 table.vertical td {
 	border-right: 1px solid #bbb;
+}
+
+table.vertical td p {
+	display: inline;
 }
 
 table.horizontal th.first {
