@@ -11,11 +11,16 @@
 	<script src="<?php echo BASE_PATH;?>/assets/packager.js" type="text/javascript"></script>
 	
 	<link href="<?php echo BASE_PATH;?>/libs/reset.css" rel="stylesheet" type="text/css" media="screen" />
+	<link rel="stylesheet" media="all" type="text/css" href="../CSS/Style.css" />
 	<link href="<?php echo BASE_PATH;?>/assets/packager.css" rel="stylesheet" type="text/css" media="screen" />
-
+	<link rel="stylesheet" media="all" type="text/css" href="../CSS/Packager.css" />
 </head>
 <body>
-	
+	<div class="boxes">
+		<a href="http://github.com/kamicane/packager-web" style="float: right;">Packager-Web by @kamicane</a>
+		
+		<b>Builder for MooTools Projects by @cpojer.</b> <a href="http://github.com/cpojer">GitHub</a> <a href="http://twitter.com/cpojer">Twitter</a>
+	</div>
 	<form action="<?php echo BASE_PATH;?>/web/download" method="post">
 
 	<?php
@@ -23,15 +28,10 @@
 	foreach ($packages as $name => $data){
 		
 	?>
-	
+	<div class="tableWrapper">
 		<table class="vertical">
 			<tr class="first">
-				<th>Name</th>
-				<td><strong><?php echo $name ?></strong> - <?php echo $data['package_description']; ?></td>
-			</tr>
-			<tr class="last">
-				<th>Copyright</th>
-				<td><?php echo $data['package_copyright'];?> - <?php echo $data['package_license'];?></td>
+				<th><h2><?php echo $name ?> <small>- <?php echo $data['package_description']; ?></small></h2></th>
 			</tr>
 		</table>
 		
@@ -69,7 +69,7 @@
 
 			?>
 		</table>
-		
+	</div>
 	<?php
 		
 	}
