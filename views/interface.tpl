@@ -5,19 +5,22 @@
 	<title>Packager Web</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	
+	<link rel="stylesheet" media="all" type="text/css" href="../CSS/Packager.css" />
+	<link href="<?php echo BASE_PATH;?>/assets/packager.css" rel="stylesheet" type="text/css" media="screen" />
+	<link rel="stylesheet" media="all" type="text/css" href="../CSS/PackagerContent.css" />
+	
 	<script src="<?php echo BASE_PATH;?>/libs/mootools.js" type="text/javascript"></script>
 	<script src="<?php echo BASE_PATH;?>/assets/packager.js" type="text/javascript"></script>
-	
-	<link href="<?php echo BASE_PATH;?>/libs/reset.css" rel="stylesheet" type="text/css" media="screen" />
-	<link rel="stylesheet" media="all" type="text/css" href="../CSS/Style.css" />
-	<link href="<?php echo BASE_PATH;?>/assets/packager.css" rel="stylesheet" type="text/css" media="screen" />
-	<link rel="stylesheet" media="all" type="text/css" href="../CSS/Packager.css" />
 </head>
 <body>
 	<div class="boxes">
-		<a href="http://github.com/kamicane/packager-web" style="float: right;">Packager-Web by @kamicane</a>
+		<span style="float: right;">
+			<a href="http://github.com/kamicane/packager-web">Packager-Web by @kamicane</a>
+			and
+			<a href="http://github.com/timwienk/packager-web">@timwienk</a>
+		</span>
 		
-		<b>Builder for MooTools Projects by @cpojer.</b> <a href="http://github.com/cpojer">GitHub</a> <a href="http://twitter.com/cpojer">Twitter</a>
+		<b>Builder for MooTools PowerTools by @cpojer.</b> <a href="http://github.com/cpojer">GitHub</a> <a href="http://twitter.com/cpojer">Twitter</a>
 	</div>
 	<form id="packager" action="<?php echo BASE_PATH;?>/web/download" method="post">
 
@@ -28,9 +31,8 @@
 			<table class="vertical">
 				<thead>
 					<tr class="first">
-						<th>Name</th>
-						<td>
-							<?php echo $name; ?>
+						<th>
+							<h2><?php echo strip_tags($name); ?><small> - <?php echo strip_tags($data['package_description']); ?></small></h2>
 							<div class="buttons">
 								<input type="hidden" name="disabled[]" class="toggle" value="" />
 								<div class="enabled">
@@ -42,7 +44,7 @@
 									<input type="button" class="enable" value="enable package" />
 								</div>
 							</div>
-						</td>
+						</th>
 					</tr>
 				</thead>
 				<tbody>
