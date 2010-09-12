@@ -234,7 +234,7 @@ var Packager = this.Packager = {
 		if (selected.length) query.push('select=' + selected.join(';'));
 		if (disabled.length) query.push('disable=' + disabled.join(';'));
 
-		return query.join('&');
+		return query.join('&') || '!';
 	},
 
 	toUrl: function(){
@@ -273,6 +273,7 @@ var Packager = this.Packager = {
 	reset: function(){
 		for (var name in components) this.deselect(name);
 		for (var name in packages) this.enablePackage(name);
+		this.setLocationHash();
 	}
 
 };
