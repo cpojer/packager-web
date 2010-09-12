@@ -32,7 +32,7 @@
 				<thead>
 					<tr class="first">
 						<th>
-							<h2><?php echo strip_tags($name); ?><small> - <?php echo strip_tags($data['package_description']); ?></small></h2>
+							<h2><?php echo strip_tags($name); ?> <small><?php echo (count($data['files']) > 1) ? strip_tags($data['package_description']) : ''; ?></small></h2>
 							<div class="buttons">
 								<input type="hidden" name="disabled[]" class="toggle" value="" />
 								<div class="enabled">
