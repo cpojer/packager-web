@@ -1,3 +1,12 @@
+<?php
+function getRepositoryName($name){
+	// Ugh!
+	if ($name == 'Form-AutoGrow') $name = 'form-autogrow';
+	$name = ltrim(strtolower(preg_replace('/-?([A-Z])/', '-$1', $name)), '-');
+	if ($name != 'scroll-loader' && $name != 'event-stack') $name = 'mootools-' . $name;
+	return $name;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,7 +55,18 @@
 				<thead>
 					<tr class="first">
 						<th>
-							<h2><?php echo strip_tags($name); ?> <small><?php echo (count($data['files']) > 1) ? strip_tags($data['package_description']) : ''; ?></small></h2>
+							<h2>
+								<small style="float: right">
+									<?php
+							 			$path = $data['path'];
+										if (file_exists($path . '/Demos'))
+											echo '<a href="http://cpojer.net/' . trim(substr($path, 2), '/') . '/Demos">Demo</a>';
+									?>
+									<a href="http://github.com/cpojer/<?php echo getRepositoryName($name); ?>/blob/master/README.md">How-To</a>
+									<a href="http://github.com/cpojer/<?php echo getRepositoryName($name); ?>">GitHub</a>
+								</small>
+								<?php echo strip_tags($name); ?> <small><?php echo (count($data['files']) > 1) ? strip_tags($data['package_description']) : ''; ?></small>
+							</h2>
 							<div class="buttons">
 								<input type="hidden" name="disabled[]" class="toggle" value="" />
 								<div class="enabled">
@@ -216,7 +236,9 @@
 
 			</table>
 		</div>
-
+		<p class="info">
+			MooTools PowerTools! is targeted at MooTools 1.3. Most of the above plugins require Core/Class, Core/Class.Extras. The DOM plugins usually require Core/Element and Core/Element.Event. MooTools Tree requires More/Drag.Move and More/Element.Delegation. You need to separately build <a href="http://mootools.net/core">mootools-core</a> and <a href="http://mootools.net/more">mootools-more</a>.
+		</p>
 		<p class="submit">
 			<input type="reset" value="reset" />
 			<input type="submit" value="download" />
