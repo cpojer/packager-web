@@ -11,6 +11,7 @@
 	
 	<script src="<?php echo BASE_PATH;?>/libs/mootools.js" type="text/javascript"></script>
 	<script src="<?php echo BASE_PATH;?>/assets/packager.js" type="text/javascript"></script>
+	<script type="text/javascript">document.addEvent('domready', Packager.init);</script>
 </head>
 <body>
 	<div class="boxes">
@@ -22,7 +23,7 @@
 		
 		<b>Builder for MooTools PowerTools by @cpojer.</b> <a href="http://github.com/cpojer">GitHub</a> <a href="http://twitter.com/cpojer">Twitter</a>
 	</div>
-	<form id="packager" action="<?php echo BASE_PATH;?>/web/download" method="post">
+	<form id="packager" action="<?php echo BASE_PATH; ?>/web/download" method="post">
 
 	<?php foreach ($packages as $name => $data): ?>
 
@@ -37,7 +38,7 @@
 								<input type="hidden" name="disabled[]" class="toggle" value="" />
 								<div class="enabled">
 									<input type="button" class="select" value="select package" />
-									<input type="button" class="deselect" value="deselect package" />
+									<input type="button" class="deselect disabled" value="deselect package" />
 									<input type="button" class="disable" value="disable package" />
 								</div>
 								<div class="disabled">
@@ -90,7 +91,7 @@
 
 			?>
 
-				<tr class="<?php echo ($i == $c) ? 'last ' : 'middle '?>unchecked">
+				<tr class="<?php echo ($i == $c) ? 'last' : 'middle'?> unchecked">
 					<td class="first check">
 						<div class="checkbox"></div>
 						<input type="checkbox" name="files[]" value="<?php echo $name; ?>" data-depends="<?php echo $file['depends']; ?>" />
@@ -108,12 +109,106 @@
 
 	<?php endforeach; ?>
 
+		<div id="options">
+			<table class="horizontal">
+
+			<?php if (!empty($config['blocks'])): ?>
+
+				<tr class="first">
+					<th class="first last" colspan="3">
+						Include code blocks
+					</th>
+				</tr>
+
+			<?php foreach($config['blocks'] as $block => $description): ?>
+
+				<tr class="middle checked selected">
+					<td class="first check">
+						<div class="checkbox"></div>
+						<input type="checkbox" name="blocks[]" value="<?php echo $block; ?>" checked="checked" />
+					</td>
+					<td class="middle"><?php echo $block ?></td>
+					<td class="last"><?php echo $description ?></td>
+				</tr>
+
+			<?php
+
+			endforeach;
+			endif;
+
+			if (!empty($config['compressors'])):
+
+			?>
+
+				<tr class="<?php echo (empty($config['blocks'])) ? 'first' : 'middle'; ?>">
+					<th class="first last" colspan="3">
+						Compression
+					</th>
+				</tr>
+
+			<?php
+
+			$compressors = $config['compressors'];
+
+			$i = 0;
+
+			foreach($compressors as $compressor):
+				$i++
+
+			?>
+
+				<tr class="middle <?php echo ($i == 1) ? 'checked selected' : 'unchecked'; ?>">
+					<td class="first check">
+						<div class="radio"></div>
+						<input type="radio" name="compressor" value="<?php echo $compressor; ?>"<?php if ($i == 1) echo ' checked="checked"'; ?> />
+					</td>
+					<td class="middle"><?php echo $compressor; ?> Compression</td>
+					<td class="last">
+
+					<?php
+
+						switch (strtolower($compressor)){
+
+							case 'yui':
+								echo 'Uses <a href="http://www.julienlecomte.net/yuicompressor/">YUI Compressor</a>
+								by <a href="http://www.julienlecomte.net/">Julien Lecomte</a>, to clean whitespace
+								and rename internal variables to shorter values. Highest compression ratio.';
+							break;
+
+							case 'jsmin':
+								echo 'Uses <a href="http://www.crockford.com/javascript/jsmin.html">JSMin</a> by
+								<a href="http://www.crockford.com/">Douglas Crockford</a>. Cleans comments and
+								whitespace.';
+							break;
+
+						}
+
+					?>
+
+					</td>
+				</tr>
+
+			<?php endforeach; ?>
+
+				<tr class="last <?php echo (count($compressors)) ? 'unchecked' : 'checked selected'; ?>">
+					<td class="first check">
+						<div class="radio"></div>
+						<input type="radio" name="compressor" value=""<?php if (!count($compressors)) echo ' checked="checked"'; ?> />
+					</td>
+					<td class="middle">No Compression</td>
+					<td class="last">Uncompressed source. Recommended in testing phase.</td>
+				</tr>
+
+			<?php endif; ?>
+
+			</table>
+		</div>
+
 		<p class="submit">
-			<input type="hidden" name="addheaders" value="" />
 			<input type="reset" value="reset" />
 			<input type="submit" value="download" />
-			<input type="submit" name="addheaders" value="download with package info" />
 		</p>
+
 	</form>
 
 </body>

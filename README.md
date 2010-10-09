@@ -13,11 +13,13 @@ Installation
 Configuration
 -------------
 
-Create a `packages.yml` and insert at least one `package.yml` path. If you have the source for mootools core 1.3 for instance, point it to its `package.yml`. You can use the `packages.yml.example` as base for your `packages.yml` Your `packages.yml` will look like this:
+The easiest way to get started is to copy the `config.yml.example` to `config.yml`. Most of the things will work out of the box, except for the packages and possibly the compression. For the packages, just provide paths to the `package.yml` files, like this:
 
 	- "/Users/kamicane/Sites/mootools-core/package.yml"
 	- "/Users/kamicane/Sites/mootools-more/package.yml"
 	- "/Users/kamicane/Sites/some-plugin/package.yml"
+
+For the compressors, you have to specify the path to the compressors, in which `{FILE}` will be replaced with the path to the temporary file that is to be compressed. You can leave the `compressors` option empty to just disable it. The compressed file will be read from the command's stdout or (if stdout is empty) read from the same temporary file.
 
 Keep in mind this has to be *valid* yaml. Use two spaces before the dash in lists, not a tab. If you get a PHP exception, it means some of the specified paths don't exist, or are not parsable by [Packager](http://github.com/kamicane/packager).
 

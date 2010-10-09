@@ -1,0 +1,19 @@
+view:
+  title: Packager Web
+  theme: packager
+
+packager:
+  exports: packaged.js
+  contenttype: application/javascript
+  charset: UTF-8
+  blocks:
+    1.2compat: Include MooTools 1.2 compatibility mode.
+  compressors:
+    YUI: java -jar /usr/share/yui-compressor/yui-compressor.jar --type js {FILE}
+
+packages:
+  - "/Users/kamicane/Sites/mootools-core-1.3/"
+  - "/Users/kamicane/Sites/mootools-table/"
+  - "/Users/kamicane/Sites/mootools-color/"
+  - "/Users/kamicane/Sites/art/"
+  - "/Users/kamicane/Sites/mootools-touch/"
