@@ -39,7 +39,7 @@ class Web extends Control {
 		}
 
 		$config['view']['blocks'] = $config['packager']['blocks'];
-		$config['view']['compressors'] = array_keys($config['packager']['compressors']);
+		$config['view']['compressors'] = !empty($config['packager']['compressors']) ? array_keys($config['packager']['compressors']) : array();
 
 		$this->data('packages', $data);
 		$this->data('config', $config['view']);
