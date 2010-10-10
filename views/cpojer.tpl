@@ -18,7 +18,7 @@ function getRepositoryName($name){
 	<link href="<?php echo BASE_PATH;?>/assets/packager.css" rel="stylesheet" type="text/css" media="screen" />
 	<link rel="stylesheet" media="all" type="text/css" href="../CSS/Packager.css" />
 	
-	<script src="<?php echo BASE_PATH;?>/libs/mootools.js" type="text/javascript"></script>
+	<script src="<?php echo BASE_PATH;?>/../JavaScript/mootools-core.js" type="text/javascript"></script>
 	<script src="<?php echo BASE_PATH;?>/assets/packager.js" type="text/javascript"></script>
 	<script type="text/javascript">document.addEvent('domready', Packager.init);</script>
 	
@@ -43,12 +43,12 @@ function getRepositoryName($name){
 			<a href="http://github.com/timwienk/packager-web">@timwienk</a>
 		</span>
 		
-		<b>Builder for MooTools PowerTools! by @cpojer.</b> <a href="http://github.com/cpojer">GitHub</a> <a href="http://twitter.com/cpojer">Twitter</a>
+		<b>Builder for MooTools PowerTools! by @cpojer.</b> Follow me on <a href="http://github.com/cpojer">GitHub</a> <a href="http://twitter.com/cpojer">Twitter</a>
 	</div>
 	<form id="packager" action="<?php echo BASE_PATH; ?>/web/download" method="post">
 
 	<?php foreach ($packages as $name => $data): ?>
-
+		
 		<div id="package-<?php echo $name; ?>" class="package">
 
 			<table class="vertical">
@@ -60,7 +60,7 @@ function getRepositoryName($name){
 									<?php
 							 			$path = $data['path'];
 										if (file_exists($path . '/Demos'))
-											echo '<a href="http://cpojer.net/' . trim(substr($path, 2), '/') . '/Demos">Demo</a>';
+											echo '<a href="http://cpojer.net/' . trim(substr($path, 2), '/') . '/Demos' . (getRepositoryName($name) == 'mootools-interface' ? '/Example.js' : '') . '">Demo</a>';
 									?>
 									<a href="http://github.com/cpojer/<?php echo getRepositoryName($name); ?>/blob/master/README.md">How-To</a>
 									<a href="http://github.com/cpojer/<?php echo getRepositoryName($name); ?>">GitHub</a>
@@ -237,7 +237,7 @@ function getRepositoryName($name){
 			</table>
 		</div>
 		<p class="info">
-			MooTools PowerTools! is targeted at MooTools 1.3. Most of the above plugins require Core/Class, Core/Class.Extras. The DOM plugins usually require Core/Element and Core/Element.Event. MooTools Tree requires More/Drag.Move and More/Element.Delegation. You need to separately build <a href="http://mootools.net/core">mootools-core</a> and <a href="http://mootools.net/more">mootools-more</a>.
+			MooTools PowerTools! is targeted at MooTools 1.3. Most of the above plugins require Core/Class and Core/Class.Extras. The DOM plugins usually require Core/Element and Core/Element.Event. Tree and Collapse require Core/Fx.Tween, More/Drag.Move and More/Element.Delegation. You need to separately build <a href="http://mootools.net/core">mootools-core</a> and <a href="http://mootools.net/more">mootools-more</a>. For more information on the exact dependencies, look into the source files on GitHub. Usually your regular build of MooTools Core should include all necessary modules. If you have any questions, don't hesitate to get in touch in any form that works for you (e-mail, twitter, github, …).
 		</p>
 		<p class="submit">
 			<input type="reset" value="reset" />
