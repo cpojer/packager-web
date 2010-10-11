@@ -43,6 +43,7 @@ function getRepositoryName($name){
 			<a href="http://github.com/timwienk/packager-web">@timwienk</a>
 		</span>
 		
+		<a href="../">« Back</a>
 		<b>Builder for MooTools PowerTools! by @cpojer.</b> Follow me on <a href="http://github.com/cpojer">GitHub</a> <a href="http://twitter.com/cpojer">Twitter</a>
 	</div>
 	<form id="packager" action="<?php echo BASE_PATH; ?>/web/download" method="post">
@@ -64,6 +65,11 @@ function getRepositoryName($name){
 									?>
 									<a href="http://github.com/cpojer/<?php echo getRepositoryName($name); ?>/blob/master/README.md">How-To</a>
 									<a href="http://github.com/cpojer/<?php echo getRepositoryName($name); ?>">GitHub</a>
+									<?php
+							 			$path = $data['path'];
+										if (file_exists($path . '/Specs'))
+											echo '<a href="http://cpojer.net/' . trim(substr($path, 2), '/') . '/Specs">Run Specs</a>';
+									?>
 								</small>
 								<?php echo strip_tags($name); ?> <small><?php echo (count($data['files']) > 1) ? strip_tags($data['package_description']) : ''; ?></small>
 							</h2>
@@ -237,7 +243,7 @@ function getRepositoryName($name){
 			</table>
 		</div>
 		<p class="info">
-			MooTools PowerTools! is targeted at MooTools 1.3. Most of the above plugins require Core/Class and Core/Class.Extras. The DOM plugins usually require Core/Element and Core/Element.Event. Tree and Collapse require Core/Fx.Tween, More/Drag.Move and More/Element.Delegation. You need to separately build <a href="http://mootools.net/core">mootools-core</a> and <a href="http://mootools.net/more">mootools-more</a>. For more information on the exact dependencies, look into the source files on GitHub. Usually your regular build of MooTools Core should include all necessary modules. If you have any questions, don't hesitate to get in touch in any form that works for you (e-mail, twitter, github, …).
+			MooTools PowerTools! is targeted at MooTools 1.3. Most of the above plugins require Core/Class and Core/Class.Extras. The DOM plugins usually require Core/Element and Core/Element.Event. Tree and Collapse require Core/Fx.Tween, More/Drag.Move and More/Element.Delegation. You need to separately build <a href="http://mootools.net/core">mootools-core</a> and <a href="http://mootools.net/more">mootools-more</a>. For more information on the exact dependencies, look into the source files on GitHub. Usually your regular build of MooTools Core should include all necessary modules. If you have any questions, don't hesitate to get in touch in any way that works for you (e-mail, twitter, github, …).
 		</p>
 		<p class="submit">
 			<input type="reset" value="reset" />
