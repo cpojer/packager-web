@@ -44,7 +44,7 @@ function getRepositoryName($name){
 		</span>
 		
 		<a href="../">« Back</a>
-		<b>Builder for MooTools PowerTools! by @cpojer.</b> Follow me on <a href="http://github.com/cpojer">GitHub</a> <a href="http://twitter.com/cpojer">Twitter</a>
+		<b>PowerTools! for MooTools by @cpojer.</b> Follow me on <a href="http://github.com/cpojer">GitHub</a> <a href="http://twitter.com/cpojer">Twitter</a>
 	</div>
 	<form id="packager" action="<?php echo BASE_PATH; ?>/web/download" method="post">
 
