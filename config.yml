@@ -1,0 +1,24 @@
+view:
+  title: PowerTools! for MooTools
+  theme: cpojer
+
+packager:
+  exports: powertools-1.0.4.js
+  contenttype: application/javascript
+  charset: UTF-8
+  blocks:
+  compressors:
+
+packages:
+  - "../MooTools/custom-event/"
+  - "../MooTools/mobile/"
+  - "../MooTools/class-extras/"
+  - "../MooTools/history/"
+  - "../MooTools/dynamic-matcher/"
+  - "../MooTools/element-wait/"
+  - "../MooTools/event-stack/"
+  - "../MooTools/form-autogrow/"
+  - "../MooTools/form-placeholder/"
+  - "../MooTools/tree/"
+  - "../MooTools/scroll-loader/"
+  - "../MooTools/interface/"
