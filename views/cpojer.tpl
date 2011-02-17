@@ -16,6 +16,7 @@ function getRepositoryName($name){
 	
 	<link rel="stylesheet" type="text/css" media="screen" href="<?php echo BASE_PATH; ?>/libs/reset.css" />
 	<link href="<?php echo BASE_PATH;?>/assets/packager.css" rel="stylesheet" type="text/css" media="screen" />
+	<link rel="stylesheet" media="all" type="text/css" href="../CSS/Sub.css" />
 	<link rel="stylesheet" media="all" type="text/css" href="../CSS/Packager.css" />
 	
 	<script src="<?php echo BASE_PATH;?>/../JavaScript/mootools-core.js" type="text/javascript"></script>
