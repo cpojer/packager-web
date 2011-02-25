@@ -3,7 +3,7 @@ view:
   theme: cpojer
 
 packager:
-  exports: powertools-1.0.4.js
+  exports: powertools-1.0.5.js
   contenttype: application/javascript
   charset: UTF-8
   blocks:
