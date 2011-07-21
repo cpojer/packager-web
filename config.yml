@@ -3,7 +3,7 @@ view:
   theme: cpojer
 
 packager:
-  exports: powertools-1.0.5.js
+  exports: powertools-1.0.6.js
   contenttype: application/javascript
   charset: UTF-8
   blocks:
@@ -15,7 +15,6 @@ packages:
   - "../MooTools/class-extras/"
   - "../MooTools/history/"
   - "../MooTools/dynamic-matcher/"
-  - "../MooTools/element-wait/"
   - "../MooTools/event-stack/"
   - "../MooTools/form-autogrow/"
   - "../MooTools/form-placeholder/"
