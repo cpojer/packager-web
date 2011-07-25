@@ -3,7 +3,7 @@ function getRepositoryName($name){
 	// Ugh!
 	if ($name == 'Form-AutoGrow') $name = 'form-autogrow';
 	$name = ltrim(strtolower(preg_replace('/-?([A-Z])/', '-$1', $name)), '-');
-	if ($name != 'scroll-loader' && $name != 'event-stack') $name = 'mootools-' . $name;
+	if ($name != 'scroll-loader' && $name != 'event-stack' && $name != 'mootilities') $name = 'mootools-' . $name;
 	return $name;
 }
 ?>
@@ -13,18 +13,18 @@ function getRepositoryName($name){
 	<meta charset="utf-8" />
 	<title><?php echo $config['title']; ?></title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	
+
 	<link rel="stylesheet" type="text/css" media="screen" href="<?php echo BASE_PATH; ?>/libs/reset.css" />
 	<link href="<?php echo BASE_PATH;?>/assets/packager.css" rel="stylesheet" type="text/css" media="screen" />
 	<link rel="stylesheet" media="all" type="text/css" href="../CSS/Sub.css" />
 	<link rel="stylesheet" media="all" type="text/css" href="../CSS/Packager.css" />
-	
+
 	<script src="<?php echo BASE_PATH;?>/../JavaScript/mootools-core.js" type="text/javascript"></script>
 	<script src="<?php echo BASE_PATH;?>/assets/packager.js" type="text/javascript"></script>
 	<script type="text/javascript">document.addEvent('domready', Packager.init);</script>
-	
-	<link rel="shortcut icon" href="../favicon.png" /> 
-	
+
+	<link rel="shortcut icon" href="../favicon.png" />
+
 	<script type="text/javascript">
 	  var _gaq = _gaq || [];
 	  _gaq.push(['_setAccount', 'UA-353460-2']);
@@ -43,14 +43,14 @@ function getRepositoryName($name){
 			and
 			<a href="http://github.com/timwienk/packager-web">@timwienk</a>
 		</span>
-		
+
 		<a href="../">« Back</a>
 		<b>PowerTools! for MooTools by @cpojer.</b> Follow me on <a href="http://github.com/cpojer">GitHub</a> <a href="http://twitter.com/cpojer">Twitter</a>
 	</div>
 	<form id="packager" action="<?php echo BASE_PATH; ?>/web/download" method="post">
 
 	<?php foreach ($packages as $name => $data): ?>
-		
+
 		<div id="package-<?php echo $name; ?>" class="package">
 
 			<table class="vertical">
